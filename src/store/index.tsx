@@ -4,7 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 /** Importa o reducer do createSlice. A partir daqui, os componentes terão acesso ao estado */
 import counterReducer from "./counterSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
@@ -14,4 +14,4 @@ const store = configureStore({
  * O estado da aplicação é o counter, que a store está renomeando para counterReducer
  */
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;

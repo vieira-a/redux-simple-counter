@@ -1,12 +1,22 @@
 /** Cria um conjunto de reducers, actions e um estado inicial */
 import { createSlice } from "@reduxjs/toolkit";
 
+interface CounterState {
+  value: number;
+}
+
+const initialState: CounterState = { value: 0 };
+
 const counterSlice = createSlice({
   name: "counter",
-  initialState: 0,
+  initialState,
   reducers: {
-    increment: (state) => state + 1,
-    decrement: (state) => state - 1,
+    increment(state) {
+      state.value += 1;
+    },
+    decrement(state) {
+      state.value -= 1;
+    },
   },
 });
 

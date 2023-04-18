@@ -16,6 +16,8 @@ Exemplo simples de um contador
 
 ## Descrição das etapas
 
+### Exemplo com Javascript
+
 - Estrutura de pastas
 
 ```
@@ -40,3 +42,17 @@ Que irá manipular o estado utilizando as funções
 - Mapa mental
 
 #### slice (actions, initial state, reducers) > store (state) > component
+
+### Exemplo com Typescript
+
+- counterSlice.tsx
+
+Criada uma interface para tipar o _initialState_ e as funções _increment_ e _decrement_
+
+- store (src/store/index.tsx)
+
+Exportamos um type para utilizar no componente Counter: `export type RootState = ReturnType<typeof store.getState>`
+
+- Counter.tsx
+
+Tipamos o parâmetro state do useSelector de acordo com o type RootState exportado. Mudamos o retorno desta função de `state.counter` para `state.counter.value`; `value` de acordo com a interface.
